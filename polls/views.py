@@ -212,7 +212,6 @@ def poll_vote(request, poll_id):
         choice = Choice.objects.get(id=choice_id)
         vote = Vote(user=request.user, poll=poll, choice=choice)
         vote.save()
-        print(vote)
         return render(request, 'polls/poll_result.html', {'poll': poll})
     else:
         messages.error(
